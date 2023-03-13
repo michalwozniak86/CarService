@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,23 +20,23 @@
                     <div class="collapse navbar-collapse" id="navbarsExample02">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pojazdy do naprawy</a>
+                                <a class="nav-link" th:href="@{/cars-to-repair}">Pojazdy do naprawy</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Dodaj nowy pojazd</a>
+                                <a class="nav-link" th:href="@{/add-car}">Dodaj nowy pojazd</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Napraw pojazd</a>
+                                <a class="nav-link" th:href="@{/repair-car}">Napraw pojazd</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pojazdy naprawione</a>
+                                <a class="nav-link" th:href="@{/repaired-cars}">Pojazdy naprawione</a>
                             </li>
                         </ul>
                     </div>
