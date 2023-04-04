@@ -1,10 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Witaj w Car Service</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+              rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+              crossorigin="anonymous">
+        <style>h2 {text-align: center}</style>
+    </head>
+    <body style="background-color: darkgray">
 
+        <!--Navbar        -->
+        <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand">Witaj w Car Service</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/cars-to-repair}">Pojazdy do naprawy</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/add-car}">Dodaj nowy pojazd</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/repair-car}">Napraw pojazd</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/repaired-cars}">Pojazdy naprawione</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <h1 class="text-center text-white py-3 bg-primary bg-gradient">Lista samochodów do naprawy</h1>
+        <div class="container d-flex justify-content-center">
+            <div style="max-width: 500px">
+
+
+                <form th:action="@{/save-car}" th:object="${car}" method="post">
+                    <!-- Pole ID samochodu -->
+                    <div class="form-group">
+                        <label for="id">ID:</label>
+                        <input type="text" class="form-control" id="id" placeholder="Wpisz ID" th:field="*{id}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Nazwa:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Wpisz nazwę" th:field="*{name}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registrationNumber">Numer rejestracyjny:</label>
+                        <input type="text" class="form-control" id="registrationNumber" placeholder="Wpisz numer rejestracyjny" th:field="*{registrationNumber}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Opis:</label>
+                        <textarea class="form-control" id="description" rows="5" placeholder="Wpisz opis" th:field="*{description}"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color">Kolor:</label>
+                        <input type="text" class="form-control" id="color" placeholder="Wpisz kolor" th:field="*{color}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="carYear">Rok produkcji:</label>
+                        <input type="number" class="form-control" id="carYear" placeholder="Wpisz rok produkcji" th:field="*{carYear}">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                </form>
+            </div>
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
